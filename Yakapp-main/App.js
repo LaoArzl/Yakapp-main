@@ -23,6 +23,7 @@ import {updateWord} from './features/words';
 import Splash from './Shared/Splash';
 import Favorites from './Screens/Favorites/Favorites';
 import SeeAll from './Screens/SeeAll';
+import Pronunciation from './Screens/Pronunciation/Pronunciation';
 
 const Stack = createNativeStackNavigator();
 
@@ -61,24 +62,24 @@ function App() {
       .catch(e => console.log(e));
   }, [appState]);
 
-  useEffect(() => {
-    setTimeout(() => setSplash(false), 3000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => setSplash(false), 3000);
+  // }, []);
 
-  if (splash) {
-    return <Splash />;
-  }
+  // if (splash) {
+  //   return <Splash />;
+  // }
 
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {onBoard !== 'no' && (
+        {/* {onBoard !== 'no' && (
           <Stack.Screen
             options={{headerShown: false}}
             name="OnBoardingScreen"
             component={OnBoardingScreen}
           />
-        )}
+        )} */}
         <Stack.Screen
           options={{headerShown: false}}
           name="TabScreen"
@@ -142,6 +143,11 @@ function App() {
           options={{headerShown: false}}
           name="SeeAll"
           component={SeeAll}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="Pronunciation"
+          component={Pronunciation}
         />
       </Stack.Navigator>
     </NavigationContainer>

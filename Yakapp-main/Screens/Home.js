@@ -186,9 +186,9 @@ const Home = ({navigation}) => {
               <TouchableOpacity onPress={() => navigation.navigate('SeeAll')}>
                 <Text
                   style={{
-                    color: '#272727',
-                    fontFamily: 'Poppins-Regular',
-                    fontSize: 13,
+                    color: '#407BFF',
+                    fontFamily: 'Poppins-Medium',
+                    fontSize: 14,
                   }}>
                   See all
                 </Text>

@@ -9,6 +9,8 @@ import {
   StatusBar,
 } from 'react-native';
 
+import {Dialog, Portal, Provider} from 'react-native-paper';
+
 const Profile = ({navigation}) => {
   const [isLogin, setIsLogin] = useState(false);
   const [switchs, setSwitchs] = useState(false);
