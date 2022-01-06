@@ -98,7 +98,28 @@ const Scan = ({navigation}) => {
         .map(empty => (empty.length !== 0 ? empty : ''))
         .filter(item => item)
         .toString()
-        .replace(/,/g, ' '),
+        .replace(/,/g, ' ') +
+        '\n' +
+        '\n' +
+        result
+          .toString()
+          .replace(/,/g, ' ')
+          .split(' ')
+          .map(
+            w =>
+              w &&
+              word
+                .filter(
+                  e =>
+                    e.English === w.toLocaleLowerCase() ||
+                    e.Yakan === w.toLocaleLowerCase(),
+                )
+                .map(f => f.Yakan + ' - ' + f.English),
+          )
+          .map(empty => (empty.length !== 0 ? empty : ''))
+          .filter(item => item)
+          .toString()
+          .replace(/,/g, '\n'),
     );
   };
 
@@ -190,9 +211,12 @@ const Scan = ({navigation}) => {
 
   return (
     <>
-      <StatusBar barStyle={night ? 'light-content' : "dark-content"} backgroundColor={night ? '#272727' : "#fff"} />
+      <StatusBar
+        barStyle={night ? 'light-content' : 'dark-content'}
+        backgroundColor={night ? '#272727' : '#fff'}
+      />
       <SafeAreaView
-        style={{flex: 1, backgroundColor:  night ? '#272727' : '#f4f4f4'}}>
+        style={{flex: 1, backgroundColor: night ? '#272727' : '#f4f4f4'}}>
         <HeaderBack nav={navigation} />
         <ScrollView>
           {image === '' && (
@@ -220,7 +244,7 @@ const Scan = ({navigation}) => {
                   style={{
                     width: 100,
                     height: 100,
-                    backgroundColor: night ? '#333' :  '#407BFF',
+                    backgroundColor: night ? '#333' : '#407BFF',
                     borderRadius: 15,
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -231,7 +255,7 @@ const Scan = ({navigation}) => {
                     style={{marginBottom: 5}}
                     name="camera"
                     size={fonts === 12 ? 28 : fonts === 14 ? 30 : 32}
-                    color={night ? '#407BFF' : "#fff"}
+                    color={night ? '#407BFF' : '#fff'}
                   />
                   <Text
                     style={{
@@ -259,7 +283,7 @@ const Scan = ({navigation}) => {
                     style={{marginBottom: 5}}
                     name="image"
                     size={fonts === 12 ? 28 : fonts === 14 ? 30 : 32}
-                    color={night ? '#407BFF' : "#fff"}
+                    color={night ? '#407BFF' : '#fff'}
                   />
                   <Text
                     style={{
@@ -310,7 +334,7 @@ const Scan = ({navigation}) => {
                       color: '#407BFF',
                       fontSize: fonts,
                     }}>
-                    {words} 
+                    {words}
                   </Text>
                 </View>
 

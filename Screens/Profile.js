@@ -232,7 +232,7 @@ const Profile = ({navigation}) => {
             <View
               style={{
                 paddingVertical: 20,
-                borderBottomWidth: night ? 0 : 1,
+    
                 paddingVertical: 20,
                 borderBottomColor: '#d3d3d3',
                 paddingHorizontal: night ? 20 : 0,
@@ -270,28 +270,7 @@ const Profile = ({navigation}) => {
                 </TouchableOpacity>
               </View>
 
-              <View
-                style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                <TouchableOpacity
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    height: 50,
-                    alignItems: 'center',
-                    width: '100%',
-                  }}>
-                  <Text
-                    style={{
-                      fontFamily: 'Poppins-Medium',
-                      color: night ? '#fff' : '#272727',
-                      fontSize: fonts,
-                    }}>
-                    Credits
-                  </Text>
-                </TouchableOpacity>
-              </View>
-
-              <TouchableOpacity
+              <TouchableOpacity onPress={() => navigation.navigate('Terms')}
                 style={{
                   flexDirection: 'row',
                   justifyContent: 'space-between',
@@ -305,11 +284,11 @@ const Profile = ({navigation}) => {
                     color: night ? '#fff' : '#272727',
                     fontSize: fonts,
                   }}>
-                  Terms & Privacy
+                  Terms & Conditions
                 </Text>
               </TouchableOpacity>
 
-              <TouchableOpacity
+              <TouchableOpacity onPress={() => navigation.navigate('Privacy')}
                 style={{
                   flexDirection: 'row',
                   justifyContent: 'space-between',
@@ -323,7 +302,7 @@ const Profile = ({navigation}) => {
                     color: night ? '#fff' : '#272727',
                     fontSize: fonts,
                   }}>
-                  Copyrights
+                  Privacy Policy
                 </Text>
               </TouchableOpacity>
             </View>

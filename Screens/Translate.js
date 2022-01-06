@@ -121,11 +121,14 @@ const Translate = ({navigation}) => {
     findFonts();
   }, [appState]);
 
-
   return (
     <>
-      <SafeAreaView style={{backgroundColor: night ? '#333' : '#F4F4F4', flex: 1}}>
-        <StatusBar barStyle={night ? 'light-content' : "dark-content"} backgroundColor={night ? '#272727' : "#fff"} />
+      <SafeAreaView
+        style={{backgroundColor: night ? '#333' : '#F4F4F4', flex: 1}}>
+        <StatusBar
+          barStyle={night ? 'light-content' : 'dark-content'}
+          backgroundColor={night ? '#272727' : '#fff'}
+        />
         <HeaderBack nav={navigation} title="Translate" background="#fff" />
         <ScrollView showsHorizontalScrollIndicator={false}>
           <View
@@ -149,7 +152,7 @@ const Translate = ({navigation}) => {
                   color: '#272727',
                   fontFamily: 'Poppins-SemiBold',
                   fontSize: fonts === 12 ? 14 : fonts === 14 ? 16 : 18,
-                  color: night ? '#fff' : '#272727'
+                  color: night ? '#fff' : '#272727',
                 }}>
                 English
               </Text>
@@ -180,20 +183,33 @@ const Translate = ({navigation}) => {
                         .map(empty => (empty.length !== 0 ? empty : ''))
                         .filter(item => item)
                         .toString()
-                        .replace(/,/g, ' ') + "\n" + "\n" + 
+                        .replace(/,/g, ' ') +
+                        '\n' +
+                        '\n' +
                         ee
-                        .split(' ').toString().replace(",", "= Salam \n")
-                    
-
-
-                        
+                          .split(' ')
+                          .map(
+                            word =>
+                              word &&
+                              Vocabulary.filter(
+                                e =>
+                                  e.English === word.toLocaleLowerCase() ||
+                                  e.English ===
+                                    word.toLocaleLowerCase() + 's' ||
+                                  e.English + 's' === word.toLocaleLowerCase(),
+                              ).map(f => f.Yakan + ' - ' + f.English),
+                          )
+                          .map(empty => (empty.length !== 0 ? empty : ''))
+                          .filter(item => item)
+                          .toString()
+                          .replace(/,/g, '\n'),
                     );
                   }}
                   autoFocus={true}
                   maxLength={30}
                   multiline={true}
                   placeholder="Input text here"
-                  placeholderTextColor={night ? "#fff" : '#272727'}
+                  placeholderTextColor={night ? '#fff' : '#272727'}
                   style={{
                     fontFamily: 'Poppins-Regular',
                     color: night ? '#fff' : '#272727',
@@ -212,15 +228,19 @@ const Translate = ({navigation}) => {
                 flexDirection: 'row',
               }}>
               <TouchableOpacity onPress={() => navigation.navigate('Scan')}>
-                <FontAwesome name="camera" size={fonts === 12 ? 18 : fonts === 14 ? 20 : 22} color="#407BFF" />
+                <FontAwesome
+                  name="camera"
+                  size={fonts === 12 ? 18 : fonts === 14 ? 20 : 22}
+                  color="#407BFF"
+                />
               </TouchableOpacity>
-              
+
               <Text
                 style={{
                   color: '#808080',
                   marginLeft: 20,
                   fontFamily: 'Poppins-Regular',
-                  fontSize: fonts
+                  fontSize: fonts,
                 }}>
                 {word.length === 0 || word.length === undefined
                   ? '0/30'
@@ -256,7 +276,11 @@ const Translate = ({navigation}) => {
                     Yakan
                   </Text>
                   <TouchableOpacity onPress={() => addFavorites()}>
-                    <AntDesign name="hearto" size={  fonts === 12 ? 18 : fonts === 14 ? 20 : 22} color="#fff" />
+                    <AntDesign
+                      name="hearto"
+                      size={fonts === 12 ? 18 : fonts === 14 ? 20 : 22}
+                      color="#fff"
+                    />
                   </TouchableOpacity>
                 </View>
                 <View style={{height: 100, paddingHorizontal: 20}}>
@@ -280,13 +304,17 @@ const Translate = ({navigation}) => {
                     justifyContent: 'flex-end',
                   }}>
                   <TouchableOpacity onPress={() => textSpeech(translated)}>
-                    <AntDesign name="sound" size={  fonts === 12 ? 18 : fonts === 14 ? 20 : 22} color="#fff" />
+                    <AntDesign
+                      name="sound"
+                      size={fonts === 12 ? 18 : fonts === 14 ? 20 : 22}
+                      color="#fff"
+                    />
                   </TouchableOpacity>
                   <TouchableOpacity onPress={() => copyClipboard()}>
                     <Feather
                       style={{marginLeft: 20}}
                       name="copy"
-                      size={  fonts === 12 ? 18 : fonts === 14 ? 20 : 22}
+                      size={fonts === 12 ? 18 : fonts === 14 ? 20 : 22}
                       color="#fff"
                     />
                   </TouchableOpacity>

@@ -28,6 +28,8 @@ import About from './Screens/About';
 import {changeSize} from './features/FontSize';
 import axios from 'axios';
 import {changeAppState} from './features/appState';
+import Terms from "./Screens/Terms";
+import Privacy from "./Screens/Privacy";
 
 const Stack = createNativeStackNavigator();
 
@@ -193,6 +195,18 @@ function App() {
           options={{headerShown: false}}
           name="About"
           component={About}
+        />
+
+<Stack.Screen
+          options={{headerShown: false}}
+          name="Privacy"
+          component={Privacy}
+        />
+
+<Stack.Screen
+          options={{headerShown: false}}
+          name="Terms"
+          component={Terms}
         />
       </Stack.Navigator>
     </NavigationContainer>

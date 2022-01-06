@@ -91,7 +91,7 @@ const Notepad = ({navigation}) => {
             iconColor="#407BFF"
             autoFocus={true}
             placeholder="Search Notes"
-            placeholderTextColor={night ? '#fff' : '#272727'}
+            placeholderTextColor={night ? '#d3d3d3' : '#808080'}
             inputStyle={{
               fontFamily: 'Poppins-Regular',
               fontSize: 14,

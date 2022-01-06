@@ -158,11 +158,12 @@ const Dictionary = ({navigation}) => {
                 }
                 autoFocus={true}
                 placeholder="Search word"
-                placeholderTextColor={night ? '#fff' : '#272727'}
+                placeholderTextColor={night ? '#d3d3d3' : '#808080'}
                 inputStyle={{
                   fontSize: 14,
-                  marginBottom: -2,
-                  color: night ? '#fff' : '#272727'
+                  color: night ? '#fff' : '#272727',
+                  fontFamily: 'Poppins-Regular',
+                  paddingBottom: 5,
                 }}
 
                 style={{
