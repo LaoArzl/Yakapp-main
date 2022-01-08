@@ -127,22 +127,21 @@ const Search = ({navigation}) => {
                 <TouchableOpacity
                   style={{
                     height: 45,
-                    backgroundColor: '#fff',
                     flexDirection: 'row',
                     alignItems: 'center',
                     paddingHorizontal: 10,
                   }}
                   onPress={() => navigation.navigate(e.path)}>
                   <View style={{marginRight: 10}}>
-                    <AntDesign name="search1" size={16} color="#272727" />
+                    <AntDesign name="search1" size={16} color={night ? '#fff' : "#272727"} />
                   </View>
                   <Text
-                    style={{color: '#272727', fontFamily: 'Poppins-Regular'}}>
+                    style={{color: night ? '#fff' : '#272727', fontFamily: 'Poppins-Regular'}}>
                     {e.title}
                   </Text>
 
                   <View style={{position: 'absolute', right: 0}}>
-                    <Feather name="arrow-up-right" size={20} color="#272727" />
+                    <Feather name="arrow-up-right" size={20} color={night ? '#fff' : "#272727"} />
                   </View>
                 </TouchableOpacity>
               );
